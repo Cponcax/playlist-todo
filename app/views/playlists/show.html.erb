@@ -27,8 +27,8 @@
         <td><%= song.title %></td>
         <td><%= song.album %></td>
         <td><%= song.artist %></td>
-        <td><%= song.link_youtube %></td>
-        <td><%= song.link_spotify %></td>
+        <td><%= song.link_to_youtube %></td>
+        <td><%= song.link_to_spotify %></td>
 
     <% end %>
   </tbody>
@@ -51,13 +51,15 @@
         <%= f.text_field  :artist , class:"input is-danger"%>
       </p>
       <p>
-        <%= f.label :link_youtube %><br>
-        <%= f.text_field  :link_youtube , class:"input is-danger"%>
+        <%= f.label :link_to_youtube %><br>
+        <%= f.text_field  :link_to_youtube , class:"input is-danger"%>
       </p>
       <p>
-        <%= f.label :link_spotify %><br>
-        <%= f.text_field  :link_spotify , class:"input is-danger"%>
+        <%= f.label :link_to_spotify %><br>
+        <%= f.text_field  :link_to_spotify , class:"input is-danger"%>
       </p>
+
+
 
       <p class="margen-in-buttom ">
         <%= f.submit class:"button is-primary "%>

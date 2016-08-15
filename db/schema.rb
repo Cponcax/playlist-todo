@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815170806) do
+ActiveRecord::Schema.define(version: 20160815194314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,14 +27,13 @@ ActiveRecord::Schema.define(version: 20160815170806) do
     t.string   "title"
     t.string   "album"
     t.string   "artist"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "playlist_id"
-    t.string   "link_youtube"
-    t.string   "link_spotify"
+    t.string   "link_to_youtube"
+    t.string   "link_to_spotify"
   end
 
   add_index "songs", ["playlist_id"], name: "index_songs_on_playlist_id", using: :btree
 
-  add_foreign_key "songs", "playlists"
 end
