@@ -1,0 +1,72 @@
+
+<p id="notice"><%= notice %></p>
+<h1 class="title is-1">LISTS SONGS </h1>
+<h1 class="subtitle ">   <strong>Name playlist:</strong> <%= @playlist.name %></h1>
+
+<p class="espace-bottom">
+  <strong>Date:</strong>
+  <%= @playlist.date %>
+</p>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Album</th>
+      <th>Artits</th>
+      <th>link_youtube</th>
+      <th>link_spotify</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @playlist.songs.each do |song| %>
+      <tr>
+        <td><%= song.title %></td>
+        <td><%= song.album %></td>
+        <td><%= song.artist %></td>
+        <td><%= song.link_youtube %></td>
+        <td><%= song.link_spotify %></td>
+
+    <% end %>
+  </tbody>
+</table>
+
+<div class="columns">
+  <div class="column is-one-quarter">
+    <h1 class="title is-2">Add a Song:</h1>
+    <%= form_for([@playlist, @playlist.songs.build]) do |f| %>
+      <p class="control has-icon has-icon-right">
+        <%= f.label :title%><br>
+        <%= f.text_field :title, class:"input is-danger"  %>
+      </p>
+      <p>
+        <%= f.label :album %><br>
+        <%= f.text_field :album, class:"input is-danger"  %>
+      </p>
+      <p>
+        <%= f.label :artist %><br>
+        <%= f.text_field  :artist , class:"input is-danger"%>
+      </p>
+      <p>
+        <%= f.label :link_youtube %><br>
+        <%= f.text_field  :link_youtube , class:"input is-danger"%>
+      </p>
+      <p>
+        <%= f.label :link_spotify %><br>
+        <%= f.text_field  :link_spotify , class:"input is-danger"%>
+      </p>
+
+      <p class="margen-in-buttom ">
+        <%= f.submit class:"button is-primary "%>
+      </p>
+    <% end %>
+
+    <%= link_to 'Edit Playlist', edit_playlist_path(@playlist), class:"button is-active" %> |
+    <%= link_to 'Back to index', playlists_path, class:"button is-active" %>
+  </div>
+  <div class="column">
+
+  </div>
